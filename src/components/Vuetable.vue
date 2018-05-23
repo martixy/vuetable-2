@@ -246,7 +246,7 @@
                 :class="['vuetable-component', field.dataClass]"
               >
                 <component :is="extractArgs(field.name)"
-                  :row-data="item" :row-index="itemIndex" :row-field="field.sortField"
+                  :row-data="item" :row-index="itemIndex" :row-field="field.sortField" :field-options="field"
                 ></component>
               </td>
               <td v-if="extractName(field.name) === '__slot'" 
@@ -483,6 +483,7 @@ export default {
       tableFields: [],
       tableData: null,
       tablePagination: null,
+      apiResponse: null,
       currentPage: this.initialPage,
       selectedTo: [],
       visibleDetailRows: [],
@@ -734,6 +735,7 @@ export default {
     loadSuccess (response) {
       this.fireEvent('load-success', response)
 
+      this.apiResponse = response.data
       let body = this.transform(response.data)
 
       this.tableData = this.getObjectValue(body, this.dataPath, null)
