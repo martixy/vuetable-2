@@ -106,7 +106,7 @@
                     :class="['vuetable-component', field.dataClass]"
                   >
                     <component :is="extractArgs(field.name)"
-                      :row-data="item" :row-index="itemIndex" :row-field="field.sortField"
+                      :row-data="item" :row-index="itemIndex" :row-field="field.sortField" :field-options="field"
                     ></component>
                   </td>
                   <td v-if="extractName(field.name) === '__slot'" 
@@ -624,6 +624,7 @@ export default {
             dataClass: '',
             callback: null,
             visible: true,
+            key: null
           }
         } else {
           obj = {
@@ -635,6 +636,7 @@ export default {
             dataClass: (field.dataClass === undefined) ? '' : field.dataClass,
             callback: (field.callback === undefined) ? '' : field.callback,
             visible: (field.visible === undefined) ? true : field.visible,
+            key: (field.key === undefined) ? null : field.key,
           }
         }
         self.tableFields.push(obj)

@@ -3227,7 +3227,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             titleClass: '',
             dataClass: '',
             callback: null,
-            visible: true
+            visible: true,
+            key: null
           };
         } else {
           obj = {
@@ -3238,7 +3239,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             titleClass: field.titleClass === undefined ? '' : field.titleClass,
             dataClass: field.dataClass === undefined ? '' : field.dataClass,
             callback: field.callback === undefined ? '' : field.callback,
-            visible: field.visible === undefined ? true : field.visible
+            visible: field.visible === undefined ? true : field.visible,
+            key: field.key === undefined ? null : field.key
           };
         }
         self.tableFields.push(obj);
@@ -5434,7 +5436,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         attrs: {
           "row-data": item,
           "row-index": itemIndex,
-          "row-field": field.sortField
+          "row-field": field.sortField,
+          "field-options": field
         }
       })], 1) : _vm._e(), _vm._v(" "), (_vm.extractName(field.name) === '__slot') ? _c('td', {
         key: fieldIndex,
